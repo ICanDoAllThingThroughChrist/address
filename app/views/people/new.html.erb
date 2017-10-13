@@ -1,0 +1,33 @@
+<%= form_for @person do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+<!--   <label> </label>
+  <input type = "text"> </input> -->
+ <fieldset>
+  <%= f.fields_for :adresses do |adress_builder| %>
+    <legend>Address</legend>
+    <%= adress_builder.label :street_address_1 %>
+    <%= adress_builder.text_field :street_address_1 %><br>
+    <%= adress_builder.label :street_address_2  %>
+    <%= adress_builder.text_field :street_address_2 %><br>
+    <%= adress_builder.label :city %>
+    <%= adress_builder.text_field :city %><br>
+    <%= adress_builder.label :state %>
+    <%= adress_builder.text_field :state %><br>
+    <%= adress_builder.label :zipcode %>
+    <%= adress_builder.text_field :zipcode %><br>
+    <%= adress_builder.label :address_type %>
+    <%= adress_builder.text_field :address_type %><br>
+  <% end %>
+ </fieldset>
+ <fieldset>
+  <%= f.fields_for :team do |team_builder| %>
+    <%= team_builder.label :name %>
+    <%= team_builder.text_field :name %><br>
+ 
+    <%= team_builder.label :hometown %>
+    <%= team_builder.text_field :hometown %><br>
+  <% end %>
+ </fieldset>
+  <%= f.submit %>
+<% end %>
